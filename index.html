@@ -135,27 +135,25 @@
             background-color: var(--color-tierra);
         }
 
-        /* --- NUEVO ESTILO: SECCIÓN SOBRE NOSOTROS --- */
+        /* --- SECCIÓN SOBRE NOSOTROS --- */
         .about-section {
             padding: 100px 20px;
             background-color: var(--blanco);
             text-align: center;
         }
 
-        /* El texto grande "SOBRE NOSOTROS" */
         .about-super-title {
-            font-size: 3.5rem; /* Muy grande */
-            color: #e0e0d0; /* Color muy suave (tipo marca de agua) */
+            font-size: 3.5rem; 
+            color: #e0e0d0; 
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 5px;
-            margin-bottom: -35px; /* Para que quede cerca del título de abajo */
+            margin-bottom: -35px; 
             font-family: 'Lato', sans-serif;
             position: relative;
             z-index: 0;
         }
 
-        /* El título "El arte de volver..." */
         .about-main-title {
             font-size: 2.8rem;
             color: var(--color-verde);
@@ -164,34 +162,31 @@
             margin-bottom: 50px;
         }
 
-        /* El Marco Atractivo */
         .about-frame {
-            border: 4px double var(--color-verde); /* Borde doble elegante */
+            border: 4px double var(--color-verde); 
             padding: 50px;
             max-width: 900px;
             margin: 0 auto;
-            background-color: #FAFAF6; /* Fondo apenas grisáceo para destacar */
-            box-shadow: 15px 15px 0px rgba(74, 93, 35, 0.1); /* Sombra decorativa */
-            text-align: left; /* Para que el texto interno se justifique bien */
+            background-color: #FAFAF6; 
+            box-shadow: 15px 15px 0px rgba(74, 93, 35, 0.1); 
+            text-align: left; 
         }
 
-        /* Columnas de Texto */
         .text-columns {
-            column-count: 2; /* Divide el texto en 2 columnas */
-            column-gap: 50px; /* Espacio entre columnas */
-            text-align: justify; /* Texto justificado */
+            column-count: 2; 
+            column-gap: 50px; 
+            text-align: justify; 
             line-height: 1.8;
             color: #555;
             font-size: 1.05rem;
         }
 
-        /* Firma al final dentro del marco */
         .about-footer {
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #ddd;
             text-align: center;
-            column-span: all; /* Que ocupe todo el ancho */
+            column-span: all; 
         }
 
         .signature {
@@ -233,6 +228,9 @@
             height: 250px;
             background-color: #ddd;
             width: 100%;
+            /* Asegura que la imagen cubra el espacio sin deformarse */
+            background-size: cover;
+            background-position: center;
         }
         
         .cat-info {
@@ -252,7 +250,6 @@
             .about-super-title { font-size: 2rem; margin-bottom: -20px; }
             .about-main-title { font-size: 1.8rem; }
             .about-frame { padding: 20px; border: 2px solid var(--color-verde); }
-            /* En móvil se vuelve 1 sola columna para poder leer */
             .text-columns { column-count: 1; }
             
             nav { flex-direction: column; padding: 15px; }
@@ -310,24 +307,24 @@
         <h2>Nuestras Colecciones</h2>
         <div class="grid-categories">
             <div class="cat-card">
-                <div class="cat-image" style="background-image: url('https://images.unsplash.com/photo-1522337660859-02fbefca4702?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); background-size: cover;"></div>
+                <div class="cat-image" style="background-image: url('cat-cuidado.png');"></div>
                 <div class="cat-info">
-                    <h3>Cuidado Capilar</h3>
-                    <p style="color: #777;">Aguacate y Romero</p>
+                    <h3>Cuidado Personal</h3>
+                    <p style="color: #777;">Shampoo, Jabones y Mascarillas</p>
                 </div>
             </div>
             <div class="cat-card">
-                <div class="cat-image" style="background-image: url('https://images.unsplash.com/photo-1585435557343-3b092031a831?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); background-size: cover;"></div>
+                <div class="cat-image" style="background-image: url('cat-hogar.png');"></div>
                 <div class="cat-info">
                     <h3>Hogar Limpio</h3>
-                    <p style="color: #777;">Aromas Cítricos</p>
+                    <p style="color: #777;">Detergentes y Desinfectantes</p>
                 </div>
             </div>
             <div class="cat-card">
-                <div class="cat-image" style="background-image: url('https://images.unsplash.com/photo-1602928321679-560bb453f190?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'); background-size: cover;"></div>
+                <div class="cat-image" style="background-image: url('cat-aroma.png');"></div>
                 <div class="cat-info">
                     <h3>Aromaterapia</h3>
-                    <p style="color: #777;">Humidificadores</p>
+                    <p style="color: #777;">Humidificadores y Aceites</p>
                 </div>
             </div>
         </div>
