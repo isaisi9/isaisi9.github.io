@@ -224,13 +224,16 @@
             transform: translateY(-5px);
         }
 
+        /* AQUÍ ESTÁ EL CAMBIO PARA QUE SE VEAN COMPLETAS */
         .cat-image {
             height: 250px;
             background-color: #ddd;
             width: 100%;
-            /* Asegura que la imagen cubra el espacio sin deformarse */
-            background-size: cover;
+            /* 'contain' hace que la imagen se vea entera */
+            background-size: contain;
             background-position: center;
+            /* Para que no se repita si sobra espacio a los lados */
+            background-repeat: no-repeat;
         }
         
         .cat-info {
