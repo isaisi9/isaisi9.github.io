@@ -18,7 +18,7 @@
         }
 
         html {
-            scroll-behavior: smooth; /* Desplazamiento suave al dar clic en el menú */
+            scroll-behavior: smooth;
         }
 
         body {
@@ -41,7 +41,7 @@
             justify-content: space-between;
             align-items: center;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky; /* Menú fijo arriba */
+            position: sticky;
             top: 0;
             z-index: 1000;
         }
@@ -94,7 +94,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.25); /* Un poco más oscuro para leer bien */
+            background: rgba(0,0,0,0.25);
         }
 
         .hero-content {
@@ -120,7 +120,7 @@
             color: var(--blanco);
             padding: 15px 35px;
             text-decoration: none;
-            border-radius: 5px; /* Botón un poco más cuadrado y elegante */
+            border-radius: 5px;
             font-weight: bold;
             transition: 0.3s;
             display: inline-block;
@@ -135,60 +135,69 @@
             background-color: var(--color-tierra);
         }
 
-        /* NUEVA SECCIÓN: SOBRE NOSOTROS (Reemplaza a los iconos) */
+        /* --- NUEVO ESTILO: SECCIÓN SOBRE NOSOTROS --- */
         .about-section {
-            padding: 80px 20px;
+            padding: 100px 20px;
             background-color: var(--blanco);
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .about-title {
             text-align: center;
-            font-size: 2.5rem;
+        }
+
+        /* El texto grande "SOBRE NOSOTROS" */
+        .about-super-title {
+            font-size: 3.5rem; /* Muy grande */
+            color: #e0e0d0; /* Color muy suave (tipo marca de agua) */
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: -35px; /* Para que quede cerca del título de abajo */
+            font-family: 'Lato', sans-serif;
+            position: relative;
+            z-index: 0;
+        }
+
+        /* El título "El arte de volver..." */
+        .about-main-title {
+            font-size: 2.8rem;
             color: var(--color-verde);
-            margin-bottom: 60px;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 50px;
         }
 
-        /* Diseño Zig-Zag (Texto - Foto / Foto - Texto) */
-        .story-block {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 60px;
+        /* El Marco Atractivo */
+        .about-frame {
+            border: 4px double var(--color-verde); /* Borde doble elegante */
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #FAFAF6; /* Fondo apenas grisáceo para destacar */
+            box-shadow: 15px 15px 0px rgba(74, 93, 35, 0.1); /* Sombra decorativa */
+            text-align: left; /* Para que el texto interno se justifique bien */
         }
 
-        .story-block.reverse {
-            flex-direction: row-reverse; /* Invierte el orden */
-        }
-
-        .story-text {
-            flex: 1;
+        /* Columnas de Texto */
+        .text-columns {
+            column-count: 2; /* Divide el texto en 2 columnas */
+            column-gap: 50px; /* Espacio entre columnas */
+            text-align: justify; /* Texto justificado */
             line-height: 1.8;
             color: #555;
             font-size: 1.05rem;
         }
 
-        .story-img {
-            flex: 1;
-            height: 350px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 5px;
-            box-shadow: 10px 10px 0px rgba(74, 93, 35, 0.1); /* Detalle decorativo */
-        }
-
-        .signature-block {
-            text-align: center;
-            margin-top: 40px;
+        /* Firma al final dentro del marco */
+        .about-footer {
+            margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            column-span: all; /* Que ocupe todo el ancho */
         }
 
-        .signature-text {
+        .signature {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             color: var(--color-verde);
         }
 
@@ -212,7 +221,6 @@
         .cat-card {
             background: var(--blanco);
             padding: 0;
-            border-radius: 0;
             transition: transform 0.3s;
             cursor: pointer;
         }
@@ -222,7 +230,7 @@
         }
 
         .cat-image {
-            height: 250px; /* Fotos más altas */
+            height: 250px;
             background-color: #ddd;
             width: 100%;
         }
@@ -231,26 +239,22 @@
             padding: 20px;
         }
 
-        /* Pie de página */
         footer {
             background-color: var(--color-verde);
             color: var(--blanco);
             text-align: center;
             padding: 60px 20px;
-            margin-top: 0;
         }
 
         /* Responsive Móvil */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
-            .story-block, .story-block.reverse {
-                flex-direction: column; /* En móvil todo va uno debajo de otro */
-                gap: 20px;
-            }
-            .story-img {
-                width: 100%;
-                height: 250px;
-            }
+            .about-super-title { font-size: 2rem; margin-bottom: -20px; }
+            .about-main-title { font-size: 1.8rem; }
+            .about-frame { padding: 20px; border: 2px solid var(--color-verde); }
+            /* En móvil se vuelve 1 sola columna para poder leer */
+            .text-columns { column-count: 1; }
+            
             nav { flex-direction: column; padding: 15px; }
             .menu { margin-top: 15px; width: 100%; display: flex; justify-content: space-around; }
             .menu a { margin: 0; }
@@ -280,28 +284,25 @@
     </header>
 
     <section id="sobre-nosotros" class="about-section">
-        <h2 class="about-title">El arte de volver a lo natural</h2>
+        
+        <div class="about-super-title">Sobre Nosotros</div>
+        <h2 class="about-main-title">El arte de volver a lo natural</h2>
 
-        <div class="story-block">
-            <div class="story-text">
-                <p>En un mundo que gira demasiado rápido, a veces olvidamos lo esencial: la paz de llegar a casa y sentirnos seguros. <strong>ECO</strong> nació precisamente de ese deseo de pausa y de una búsqueda muy personal: encontrar productos que no solo limpien, sino que cuiden de verdad.</p>
+        <div class="about-frame">
+            <div class="text-columns">
+                <p style="margin-top: 0;">En un mundo que gira demasiado rápido, a veces olvidamos lo esencial: la paz de llegar a casa y sentirnos seguros. <strong>ECO</strong> nació precisamente de ese deseo de pausa y de una búsqueda muy personal: encontrar productos que no solo limpien, sino que cuiden de verdad.</p>
+                
                 <p>Lo que comenzó como una inquietud familiar por evitar químicos agresivos y proteger a los nuestros, se transformó en nuestra gran pasión. Nos dimos cuenta de que la eficacia no tiene por qué estar reñida con la suavidad, ni el cuidado del hogar con el respeto por el planeta.</p>
-            </div>
-            <div class="story-img" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745a30bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-        </div>
-
-        <div class="story-block reverse">
-            <div class="story-img" style="background-image: url('https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
-            <div class="story-text">
+                
                 <p>Por eso, en <strong>ECO</strong> creemos que lavar la ropa, encender un difusor o cuidar tu piel no deberían ser tareas rutinarias, sino pequeños rituales de bienestar. Formulamos nuestros productos seleccionando cuidadosamente ingredientes nobles y extractos naturales, asegurándonos de llevar la pureza del exterior hacia el interior de tu casa.</p>
+                
                 <p>No somos una corporación sin rostro; somos personas creando para personas. Cada botella que sale de nuestras manos lleva el cariño de quien ama lo que hace y el compromiso de un futuro más sostenible.</p>
             </div>
-        </div>
 
-        <div class="signature-block">
-            <p>Queremos transformar tu rutina diaria en un refugio de calma.</p>
-            <p class="signature-text">De nuestra familia a la tuya: bienvenidos a ECO.</p>
-            <img src="logo-eco.png" alt="ECO" style="width: 40px; margin-top: 15px; opacity: 0.8;">
+            <div class="about-footer">
+                <p>Queremos transformar tu rutina diaria en un refugio de calma.</p>
+                <p class="signature">De nuestra familia a la tuya: bienvenidos a ECO.</p>
+            </div>
         </div>
     </section>
 
