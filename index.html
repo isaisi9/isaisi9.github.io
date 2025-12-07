@@ -6,7 +6,6 @@
     <title>ECO | Tu refugio natural</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         /* --- ESTILOS VISUALES (CSS) --- */
         :root {
@@ -158,13 +157,21 @@
         <section id="sobre-nosotros" class="about-section">
             <div class="about-super-title">Sobre Nosotros</div>
             <h2 class="about-main-title">El arte de volver a lo natural</h2>
+
             <div class="about-frame">
                 <div class="text-columns">
-                    <p style="margin-top: 0;">En <strong>ECO</strong>, creemos que la limpieza y el cuidado personal son rituales de bienestar. Nacimos buscando productos seguros para nuestra familia y respetuosos con el planeta.</p>
-                    <p>Formulamos con ingredientes botánicos seleccionados para llevar la pureza de la naturaleza a tu hogar. Sin químicos agresivos, solo eficacia natural.</p>
+                    <p style="margin-top: 0;">En un mundo que gira demasiado rápido, a veces olvidamos lo esencial: la paz de llegar a casa y sentirnos seguros. <strong>ECO</strong> nació precisamente de ese deseo de pausa y de una búsqueda muy personal: encontrar productos que no solo limpien, sino que cuiden de verdad.</p>
+                    
+                    <p>Lo que comenzó como una inquietud familiar por evitar químicos agresivos y proteger a los nuestros, se transformó en nuestra gran pasión. Nos dimos cuenta de que la eficacia no tiene por qué estar reñida con la suavidad, ni el cuidado del hogar con el respeto por el planeta.</p>
+                    
+                    <p>Por eso, en <strong>ECO</strong> creemos que lavar la ropa, encender un difusor o cuidar tu piel no deberían ser tareas rutinarias, sino pequeños rituales de bienestar. Formulamos nuestros productos seleccionando cuidadosamente ingredientes nobles y extractos naturales, asegurándonos de llevar la pureza del exterior hacia el interior de tu casa.</p>
+                    
+                    <p>No somos una corporación sin rostro; somos personas creando para personas. Cada botella que sale de nuestras manos lleva el cariño de quien ama lo que hace y el compromiso de un futuro más sostenible.</p>
                 </div>
+
                 <div class="about-footer">
-                    <p class="signature">Bienvenidos a ECO.</p>
+                    <p>Queremos transformar tu rutina diaria en un refugio de calma.</p>
+                    <p class="signature">De nuestra familia a la tuya: bienvenidos a ECO.</p>
                 </div>
             </div>
         </section>
@@ -229,8 +236,6 @@
         <div class="product-grid" id="contenedor-productos">
             </div>
     </div>
-
-
     <footer id="contacto">
         <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
             <img src="logo-eco.png" alt="Logo ECO" style="height: 40px; filter: brightness(0) invert(1);">
@@ -253,81 +258,9 @@
     </a>
 
     <script>
-        // BASE DE DATOS DE PRODUCTOS (Aquí están todos tus productos organizados)
+        // BASE DE DATOS DE PRODUCTOS
         const productosDB = {
             'cuidado': [
                 { nombre: "Kit Capilar Restauración", desc: "Shampoo + Acondicionador + Mascarilla.", aroma: "Romero & Aloe Vera / Coco", img: "shampoo.png" },
                 { nombre: "Jabón Líquido Corporal", desc: "Hidratación profunda con espuma suave.", aroma: "Frutos Rojos / Avena / Rosas", img: "jabon.png" },
-                { nombre: "Jabón de Manos Antibacterial", desc: "Elimina bacterias sin resecar la piel.", aroma: "Manzanilla / Cotton", img: "jabon.png" } // Puedes repetir imagen o subir una nueva
-            ],
-            'hogar': [
-                { nombre: "Lavavajillas Bio-Active", desc: "Arranca grasa cuidando tus manos.", aroma: "Naranja Cítrica / Limón", img: "lavavajillas.png" },
-                { nombre: "Detergente Líquido ECO", desc: "Limpieza profunda para ropa blanca y color.", aroma: "Floral Fresco", img: "hogar.png" }, // Usamos hogar.png como genérico si no tienes foto detergente
-                { nombre: "Suavizante de Telas", desc: "Suavidad y fragancia duradera.", aroma: "Bebé / Lavanda", img: "hogar.png" },
-                { nombre: "Aromatizante Textil", desc: "Renueva tus sábanas y cortinas.", aroma: "Brisa Marina", img: "hogar.png" }
-            ],
-            'aroma': [
-                { nombre: "Aceites Esenciales Puros", desc: "Para difusor. Relajación total.", aroma: "Lavanda / Eucalipto / Menta", img: "difusor.png" },
-                { nombre: "Humidificador ECO", desc: "Mantiene la humedad ideal en tu hogar.", aroma: "Dispositivo Ultrasónico", img: "difusor.png" },
-                { nombre: "Desinfectante de Pisos", desc: "Limpieza segura para mascotas y niños.", aroma: "Pino / Lavanda", img: "aroma.png" },
-                { nombre: "Esencias Navideñas", desc: "Edición Especial Temporada.", aroma: "Canela / Manzana / Pino", img: "aroma.png" }
-            ]
-        };
-
-        const vistaPrincipal = document.getElementById('vista-principal');
-        const vistaCategoria = document.getElementById('vista-categoria');
-        const contenedorProductos = document.getElementById('contenedor-productos');
-        const tituloCategoria = document.getElementById('titulo-categoria');
-
-        // Función para abrir una categoría específica
-        function abrirCategoria(categoria) {
-            // 1. Ocultar Principal
-            vistaPrincipal.style.display = 'none';
-            // 2. Mostrar Categoría
-            vistaCategoria.style.display = 'block';
-            
-            // 3. Poner el Título Correcto
-            if(categoria === 'cuidado') tituloCategoria.innerText = "Cuidado Personal";
-            if(categoria === 'hogar') tituloCategoria.innerText = "Bienestar y Limpieza";
-            if(categoria === 'aroma') tituloCategoria.innerText = "Aromaterapia y Desinfección";
-
-            // 4. Generar los productos automáticamente
-            contenedorProductos.innerHTML = ""; // Limpiar productos anteriores
-            const lista = productosDB[categoria];
-            
-            lista.forEach(prod => {
-                const htmlProducto = `
-                    <div class="product-item">
-                        <div class="product-img-container">
-                            <img src="${prod.img}" alt="${prod.nombre}">
-                        </div>
-                        <h3 class="product-title">${prod.nombre}</h3>
-                        <p class="product-desc">${prod.desc}</p>
-                        <p class="product-fragrance">OPCIONES: ${prod.aroma}</p>
-                    </div>
-                `;
-                contenedorProductos.innerHTML += htmlProducto;
-            });
-            
-            // Subir al inicio de la página suavemente
-            window.scrollTo(0, 0);
-        }
-
-        // Función para volver al inicio
-        function mostrarInicio() {
-            vistaCategoria.style.display = 'none';
-            vistaPrincipal.style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        // Función Scroll del menú
-        function irAColecciones() {
-            mostrarInicio(); // Asegurar que estamos en home
-            setTimeout(() => {
-                document.getElementById('catalogo-menu').scrollIntoView();
-            }, 100);
-        }
-    </script>
-
-</body>
-</html>
+                {
