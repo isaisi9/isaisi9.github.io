@@ -224,16 +224,13 @@
             transform: translateY(-5px);
         }
 
-        /* AQUÍ ESTÁ EL CAMBIO PARA QUE SE VEAN COMPLETAS */
         .cat-image {
             height: 250px;
             background-color: #ddd;
             width: 100%;
-            /* 'contain' hace que la imagen se vea entera */
-            background-size: contain;
+            /* Asegura que la imagen cubra el espacio sin deformarse */
+            background-size: cover;
             background-position: center;
-            /* Para que no se repita si sobra espacio a los lados */
-            background-repeat: no-repeat;
         }
         
         .cat-info {
@@ -317,14 +314,14 @@
                 </div>
             </div>
             <div class="cat-card">
-                <div class="cat-image" style="background-image: url('cat-hogar.png');"></div>
+                <div class="cat-image" style="background-image: url('hogar.png');"></div>
                 <div class="cat-info">
                     <h3>Hogar Limpio</h3>
                     <p style="color: #777;">Detergentes y Desinfectantes</p>
                 </div>
             </div>
             <div class="cat-card">
-                <div class="cat-image" style="background-image: url('cat-aroma.png');"></div>
+                <div class="cat-image" style="background-image: url('aroma.png');"></div>
                 <div class="cat-info">
                     <h3>Aromaterapia</h3>
                     <p style="color: #777;">Humidificadores y Aceites</p>
