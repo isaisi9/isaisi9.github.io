@@ -84,7 +84,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-image: url('portada-eco.png'); /* TU FOTO DE PORTADA */
+            /* RECUERDA: Cambia 'portada-eco.png' por tu imagen real */
+            background-image: url('portada-eco.png'); 
             background-size: cover;
             background-position: center;
             position: relative;
@@ -196,7 +197,7 @@
             color: var(--color-verde);
         }
 
-        /* Categorías */
+        /* --- CATEGORÍAS --- */
         .categories {
             padding: 80px 20px;
             text-align: center;
@@ -228,7 +229,6 @@
             height: 250px;
             background-color: #ddd;
             width: 100%;
-            /* Asegura que la imagen cubra el espacio sin deformarse */
             background-size: cover;
             background-position: center;
         }
@@ -237,6 +237,71 @@
             padding: 20px;
         }
 
+        /* --- NUEVA SECCIÓN: PRODUCTOS DETALLADOS --- */
+        .products-section {
+            padding: 60px 20px;
+            background-color: #ffffff;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .product-item {
+            text-align: left;
+        }
+
+        .product-img-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            background-color: #f0f0f0;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-item:hover .product-img-container img {
+            transform: scale(1.05);
+        }
+
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--color-texto);
+            margin: 10px 0 5px 0;
+            font-weight: 700;
+        }
+
+        .product-desc {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .product-fragrance {
+            font-size: 0.85rem;
+            color: var(--color-verde);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- FOOTER --- */
         footer {
             background-color: var(--color-verde);
             color: var(--blanco);
@@ -253,8 +318,8 @@
             .text-columns { column-count: 1; }
             
             nav { flex-direction: column; padding: 15px; }
-            .menu { margin-top: 15px; width: 100%; display: flex; justify-content: space-around; }
-            .menu a { margin: 0; }
+            .menu { margin-top: 15px; width: 100%; display: flex; justify-content: space-around; flex-wrap: wrap; }
+            .menu a { margin: 5px 10px; }
         }
     </style>
 </head>
@@ -266,9 +331,9 @@
             <span class="logo-text">ECO.</span>
         </div>
         <div class="menu">
-            <a href="#">Tienda</a>
+            <a href="#catalogo">Nuestra Colección</a>
             <a href="#sobre-nosotros">Sobre Nosotros</a>
-            <a href="#">Contacto</a>
+            <a href="#contacto">Contacto</a>
         </div>
     </nav>
 
@@ -310,27 +375,73 @@
                 <div class="cat-image" style="background-image: url('cat-cuidado.png');"></div>
                 <div class="cat-info">
                     <h3>Cuidado Personal</h3>
-                    <p style="color: #777;">Kit Tratamiento, Jabones liquidos de cuerpo y manos</p>
+                    <p style="color: #777;">Kit Tratamiento, Jabones líquidos de cuerpo y manos</p>
                 </div>
             </div>
             <div class="cat-card">
                 <div class="cat-image" style="background-image: url('hogar.png');"></div>
                 <div class="cat-info">
-                    <h3>Línea de Bienestar y Limpieza ECO</h3>
-                    <p style="color: #777;">Detergente Liquido, Suavizante, Aroma Textil y Lavavajilla</p>
+                    <h3>Línea de Bienestar y Limpieza</h3>
+                    <p style="color: #777;">Detergente Líquido, Suavizante, Aroma Textil y Lavavajilla</p>
                 </div>
             </div>
             <div class="cat-card">
                 <div class="cat-image" style="background-image: url('aroma.png');"></div>
                 <div class="cat-info">
-                    <h3>Desinfeccion y Aromaterapia</h3>
-                    <p style="color: #777;">Desinfectantes de Piso, Aromatizantes de Ambiente, Aceites Esenciales para Difusor</p>
+                    <h3>Desinfección y Aromaterapia</h3>
+                    <p style="color: #777;">Desinfectantes, Aromatizantes y Aceites Esenciales</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
+    <section class="products-section">
+        <h2 class="about-main-title" style="margin-bottom: 40px; font-size: 2.2rem;">Favoritos de la Temporada</h2>
+        
+        <div class="product-grid">
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="ruta-imagen-shampoo.jpg" alt="Kit Shampoo ECO">
+                </div>
+                <h3 class="product-title">Kit Capilar Restauración</h3>
+                <p class="product-desc">Nutrición botánica profunda para devolver el brillo natural a tu cabello.</p>
+                <p class="product-fragrance">Aroma: Romero & Aloe Vera</p>
+            </div>
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="ruta-imagen-lavavajilla.jpg" alt="Lavavajillas ECO">
+                </div>
+                <h3 class="product-title">Lavavajillas Bio-Active</h3>
+                <p class="product-desc">Poder desengrasante que cuida tus manos y respeta los ríos.</p>
+                <p class="product-fragrance">Opciones: Naranja Cítrica / Limón</p>
+            </div>
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="ruta-imagen-difusor.jpg" alt="Difusor de Aromas">
+                </div>
+                <h3 class="product-title">Esencias Puras</h3>
+                <p class="product-desc">Transforma tu ambiente con aceites esenciales 100% extraídos de la naturaleza.</p>
+                <p class="product-fragrance">Aroma: Lavanda & Eucalipto</p>
+            </div>
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="ruta-imagen-jabon.jpg" alt="Jabón Líquido ECO">
+                </div>
+                <h3 class="product-title">Jabón Corporal Suave</h3>
+                <p class="product-desc">Hidratación diaria con espuma ligera y biodegradable.</p>
+                <p class="product-fragrance">Aroma: Frutos Rojos / Avena</p>
+            </div>
+
+        </div>
+        
+        <a href="#" class="btn" style="margin-top: 50px;">Ver Tienda Completa</a>
+    </section>
+
+    <footer id="contacto">
         <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
             <img src="logo-eco.png" alt="Logo ECO" style="height: 40px; filter: brightness(0) invert(1);">
         </div>
