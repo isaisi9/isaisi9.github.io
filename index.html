@@ -15,6 +15,7 @@
             --color-tierra: #8C6A4B; /* Marrón suave */
             --color-texto: #333333;
             --blanco: #ffffff;
+            --whatsapp-color: #25d366; /* Verde oficial WhatsApp */
         }
 
         html {
@@ -300,6 +301,33 @@
             letter-spacing: 1px;
         }
 
+        /* --- BOTÓN FLOTANTE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-color);
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px; /* Tamaño del icono */
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            z-index: 9999; /* Siempre encima */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1ebe57; /* Un verde un poco más oscuro al pasar mouse */
+            transform: scale(1.1); /* Efecto zoom */
+            box-shadow: 2px 2px 15px rgba(0,0,0,0.4);
+        }
+
         /* --- FOOTER & REDES SOCIALES --- */
         footer {
             background-color: var(--color-verde);
@@ -327,7 +355,7 @@
 
         .social-link {
             color: var(--blanco);
-            font-size: 1.8rem; /* Tamaño de los iconos */
+            font-size: 1.8rem;
             transition: all 0.3s ease;
             text-decoration: none;
             display: flex;
@@ -341,7 +369,7 @@
 
         .social-link:hover {
             color: #ffffff;
-            background-color: var(--color-tierra); /* Fondo café suave al pasar el mouse */
+            background-color: var(--color-tierra);
             border-color: var(--color-tierra);
             transform: translateY(-3px);
         }
@@ -357,6 +385,15 @@
             nav { flex-direction: column; padding: 15px; }
             .menu { margin-top: 15px; width: 100%; display: flex; justify-content: space-around; flex-wrap: wrap; }
             .menu a { margin: 5px 10px; }
+            
+            /* Ajuste del botón WhatsApp en móvil para que no estorbe */
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 28px;
+            }
         }
     </style>
 </head>
@@ -475,29 +512,32 @@
         <a href="#" class="btn" style="margin-top: 50px;">Ver Tienda Completa</a>
     </section>
 
+    <a href="https://wa.me/593993372107?text=Hola%20ECO%2C%20me%20interesan%20sus%20productos" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <footer id="contacto">
         <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
             <img src="logo-eco.png" alt="Logo ECO" style="height: 40px; filter: brightness(0) invert(1);">
         </div>
         
-        <p>Únete a la comunidad en el apoyo al planeta muy pronto simbra un arbol.</p>
+        <p>Únete a la comunidad en el apoyo al planeta</p>
         
         <div class="social-container">
             <p class="social-text">Síguenos para más consejos naturales:</p>
             <div class="social-icons">
-                <a href="https://www.instagram.com/productos_eco1/" target="_blank" class="social-link" title="Instagram">
+                <a href="https://www.instagram.com" target="_blank" class="social-link" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
-                
-                <a href="https://www.tiktok.com/@productos_eco1" target="_blank" class="social-link" title="TikTok">
+                <a href="https://www.tiktok.com" target="_blank" class="social-link" title="TikTok">
                     <i class="fab fa-tiktok"></i>
                 </a>
-                
                 <a href="https://www.facebook.com" target="_blank" class="social-link" title="Facebook">
                     <i class="fab fa-facebook-f"></i>
                 </a>
             </div>
         </div>
+
         <br>
         <p style="font-size: 0.8rem; opacity: 0.7; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 20px;">
             &copy; 2025 ECO Products. Todos los derechos reservados.
