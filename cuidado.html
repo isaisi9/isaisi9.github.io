@@ -20,7 +20,7 @@
         body { font-family: 'Lato', sans-serif; margin: 0; padding: 0; background-color: var(--color-fondo); color: var(--color-texto); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* Navegación idéntica */
+        /* Navegación */
         nav { background-color: var(--blanco); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .logo-container { display: flex; align-items: center; }
         .logo-img { height: 50px; margin-right: 10px; width: auto; }
@@ -28,7 +28,7 @@
         .menu a { text-decoration: none; color: var(--color-texto); margin-left: 20px; transition: color 0.3s; }
         .menu a:hover { color: var(--color-verde); }
 
-        /* Header pequeño para página interna */
+        /* Header de Página */
         .page-header {
             background-color: var(--color-verde);
             color: var(--blanco);
@@ -36,18 +36,19 @@
             padding: 60px 20px;
         }
 
-        /* Estilos de la cuadrícula de productos (reutilizados) */
+        /* Cuadrícula de productos */
         .products-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .product-item { background: var(--blanco); padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        .product-item { background: var(--blanco); padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .product-item:hover { transform: translateY(-5px); }
         .product-img-container { width: 100%; height: 250px; overflow: hidden; border-radius: 5px; margin-bottom: 15px; background-color: #eee; }
         .product-img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .product-title { font-size: 1.2rem; margin: 10px 0; color: var(--color-verde); }
-        .price { font-weight: bold; font-size: 1.1rem; color: var(--color-tierra); margin-top: 10px; display: block;}
+        .product-title { font-size: 1.2rem; margin: 10px 0; color: var(--color-verde); min-height: 50px; }
+        .product-desc { font-size: 0.95rem; line-height: 1.5; color: #555; }
+        .price { font-weight: bold; font-size: 1.1rem; color: var(--color-tierra); margin-top: 15px; display: block;}
 
         /* Botones */
-        .btn { background-color: var(--color-verde); color: var(--blanco); padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem;}
+        .btn { background-color: var(--color-verde); color: var(--blanco); padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem; text-align: center;}
         .btn:hover { background-color: var(--color-tierra); }
         
         .btn-back {
@@ -58,7 +59,7 @@
         }
         .btn-back:hover { background-color: var(--color-texto); color: var(--blanco); }
 
-        /* WhatsApp y Footer idénticos */
+        /* WhatsApp y Footer */
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: var(--whatsapp-color); color: #FFF; border-radius: 50px; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; transition: transform 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); }
         footer { background-color: var(--color-verde); color: var(--blanco); text-align: center; padding: 40px 20px; margin-top: 50px; }
@@ -100,116 +101,150 @@
             
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="romero.png" alt="Kit Tratamineto ECO">
+                    <img src="romero.png" alt="Kit Tratamiento ECO Romero">
                 </div>
-                <h3 class="product-title">Kit Tratamineto ECO</h3>
-                <p>Lo mejor del Romero + La nutrición del Aguacate es el dúo perfecto para tu cabello</p>
-                <p>✅ Acelerar el crecimiento.</p>
-                    <p>✅ Controlar la caspa.</p>
-                        <p>✅ Dar un volumen espectacular.</p>
+                <div>
+                    <h3 class="product-title">Kit Tratamiento ECO</h3>
+                    <div class="product-desc">
+                        <p>Lo mejor del Romero + La nutrición del Aguacate.</p>
+                        <p>✅ Acelera el crecimiento.</p>
+                        <p>✅ Controla la caspa.</p>
+                        <p>✅ Volumen espectacular.</p>
                         <p>🚫 Fórmula limpia SIN SAL.</p>
-                <span class="price">$15.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="sabila.png" alt="Kit Tratamineto ECO">
+                    <img src="sabila.png" alt="Kit Tratamiento ECO Sábila">
                 </div>
-                <h3 class="product-title">Kit Tratamineto ECO</h3>
-                <p>Descubre el dúo tropical perfecto: Kit ECO de Sábila y Coco.</p>
-                 <p>💧 Hidrata profundamente.</p>
-                    <p>🥥 Aporta una suavidad increíble.</p>
-                        <p>🛡️ Protege y controla la caspa.</p>
+                <div>
+                    <h3 class="product-title">Kit Tratamiento ECO</h3>
+                    <div class="product-desc">
+                        <p>El dúo tropical perfecto: Sábila y Coco.</p>
+                        <p>💧 Hidrata profundamente.</p>
+                        <p>🥥 Suavidad increíble.</p>
+                        <p>🛡️ Protege y controla caspa.</p>
                         <p>🚫 Fórmula limpia SIN SAL.</p>
-                <span class="price">$15.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="frutos.png" alt="Jabón Liquido Frutos Rojos" onerror="this.src='https://via.placeholder.com/300x300?text=Crema+Eco'">
+                    <img src="frutos.png" alt="Jabón Liquido Frutos Rojos" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
                 </div>
-                <h3 class="product-title">Jabón Liquido Frutos Rojos</h3>
-                <p>Jabón liquido de tocador para manos y cuerpo 500 ml</p>
-                <p>Conciente tu piel todos los días</p>
-                <p>Con Vitamina E, Aloe Vera y Glicerina</p>
-                <p>Rico aroma a frutos rojos</p>
-                <span class="price">$3.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Jabón Líquido Frutos Rojos</h3>
+                    <div class="product-desc">
+                        <p>Manos y cuerpo | 500 ml</p>
+                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
+                        <p><i>Aroma intenso a frutos rojos.</i></p>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
              <div class="product-item">
                 <div class="product-img-container">
-                    <img src="manzanilla.png" alt="Jabón Liquido Manzanilla" onerror="this.src='https://via.placeholder.com/300x300?text=Exfoliante'">
+                    <img src="manzanilla.png" alt="Jabón Liquido Manzanilla" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
                 </div>
-                <h3 class="product-title">Jabón Liquido Manzanilla</h3>
-                 <p>Jabón liquido de tocador para manos y cuerpo 500 ml</p>
-                <p>Conciente tu piel todos los días</p>
-                <p>Con Vitamina E, Aloe Vera y Glicerina</p>
-                <p>Rico aroma a Manzanilla</p>
-                <span class="price">$3.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Jabón Líquido Manzanilla</h3>
+                    <div class="product-desc">
+                        <p>Manos y cuerpo | 500 ml</p>
+                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
+                        <p><i>Relajante aroma a Manzanilla.</i></p>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="rosas.png" alt="Jabón Liquido Rosas" onerror="this.src='https://via.placeholder.com/300x300?text=Crema+Eco'">
+                    <img src="rosas.png" alt="Jabón Liquido Rosas" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
                 </div>
-                <h3 class="product-title">Jabón Liquido Victoria Amore</h3>
-                 <p>Jabón liquido de tocador para manos y cuerpo 500 ml</p>
-                <p>Conciente tu piel todos los días</p>
-                <p>Con Vitamina E, Aloe Vera y Glicerina</p>
-                <p>Rico aroma a Victoria Amore/Rosas</p>
-                <span class="price">$3.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Jabón Líquido Victoria Amore</h3>
+                    <div class="product-desc">
+                        <p>Manos y cuerpo | 500 ml</p>
+                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
+                        <p><i>Sofisticado aroma a Rosas.</i></p>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="cotton.png" alt="Jabón Liquido Cotton" onerror="this.src='https://via.placeholder.com/300x300?text=Crema+Eco'">
+                    <img src="cotton.png" alt="Jabón Liquido Cotton" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
                 </div>
-                <h3 class="product-title">Jabón Liquido Cotton</h3>
-                 <p>Jabón liquido de tocador para manos y cuerpo 500 ml</p>
-                <p>Conciente tu piel todos los días</p>
-                <p>Con Vitamina E, Aloe Vera y Glicerina</p>
-                <p>Rico aroma a frescura</p>
-                <span class="price">$3.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Jabón Líquido Cotton</h3>
+                    <div class="product-desc">
+                        <p>Manos y cuerpo | 500 ml</p>
+                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
+                        <p><i>Aroma a limpieza y frescura.</i></p>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="granada.png" alt="Jabón Liquido Granada" onerror="this.src='https://via.placeholder.com/300x300?text=Crema+Eco'">
+                    <img src="granada.png" alt="Jabón Liquido Granada" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
                 </div>
-                <h3 class="product-title">Jabón Liquido Granada</h3>
-                 <p>Jabón liquido de tocador para manos y cuerpo 500 ml</p>
-                <p>Conciente tu piel todos los días</p>
-                <p>Con Vitamina E, Aloe Vera y Glicerina</p>
-                <p>Rico aroma a Granada</p>
-                <span class="price">$3.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Jabón Líquido Granada</h3>
+                    <div class="product-desc">
+                        <p>Manos y cuerpo | 500 ml</p>
+                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
+                        <p><i>Aroma exótico a Granada.</i></p>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="cotton.png" alt="Jabón Liquido Avena" onerror="this.src='https://via.placeholder.com/300x300?text=Crema+Eco'">
+                    <img src="avena.png" alt="Jabón Liquido Avena" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Avena'">
                 </div>
-                <h3 class="product-title">Jabón Liquido Avena</h3>
-                 <p>Jabón liquido de tocador para manos y cuerpo 500 ml</p>
-                <p>Conciente tu piel todos los días</p>
-                <p>Con Vitamina E, Aloe Vera y Glicerina</p>
-                <p>Rico aroma a Avena</p>
-                <span class="price">$3.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Jabón Líquido Avena</h3>
+                    <div class="product-desc">
+                        <p>Manos y cuerpo | 500 ml</p>
+                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
+                        <p><i>Suave aroma a Avena.</i></p>
+                    </div>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
         </div>
     </section>
