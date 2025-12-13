@@ -28,17 +28,39 @@
         .menu a { text-decoration: none; color: var(--color-texto); margin-left: 20px; transition: color 0.3s; }
         .menu a:hover { color: var(--color-verde); }
 
-        /* --- HEADER MODIFICADO CON IMAGEN --- */
+        /* --- HEADER MODIFICADO (NUEVO ESTILO) --- */
         .page-header {
-            /* Imagen de fondo con una capa oscura suave para que se lea el texto */
-            background-image: linear-gradient(rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5)), url('Portada_cuidado.png');
-            background-size: cover; /* La imagen cubre todo el espacio */
-            background-position: center; /* Centra la imagen */
+            /* Cambio 1: Overlay verde oscuro en lugar de negro para mejor branding */
+            background-image: linear-gradient(rgba(30, 50, 20, 0.7), rgba(30, 50, 20, 0.5)), url('Portada_cuidado.png');
+            background-size: cover;
+            background-position: center;
             background-repeat: no-repeat;
             
             color: var(--blanco);
             text-align: center;
-            padding: 80px 20px; /* Un poco más de altura para lucir la imagen */
+            /* Aumentamos el padding para que la imagen luzca más */
+            padding: 100px 20px;
+        }
+
+        /* Cambio 2: Estilo de las letras del título */
+        .page-header h1 {
+            font-size: 3.5rem; /* Letra mucho más grande */
+            font-weight: 700;
+            text-transform: uppercase; /* Mayúsculas para impacto */
+            letter-spacing: 3px;
+            margin: 0;
+            /* Sombra para que se lea bien sobre cualquier imagen */
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
+        }
+
+        /* Cambio 3: Estilo del subtítulo */
+        .page-header p {
+            font-family: 'Playfair Display', serif; /* Usamos la fuente elegante */
+            font-size: 1.5rem;
+            font-style: italic; /* Cursiva para elegancia */
+            margin-top: 15px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            opacity: 0.9;
         }
 
         /* Cuadrícula de productos */
@@ -105,6 +127,7 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; }
             .menu { margin-top: 15px; }
+            .page-header h1 { font-size: 2.5rem; } /* Ajuste para móviles */
         }
     </style>
 </head>
