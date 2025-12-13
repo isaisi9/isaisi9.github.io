@@ -39,16 +39,51 @@
         /* Cuadrícula de productos */
         .products-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .product-item { background: var(--blanco); padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .product-item { 
+            background: var(--blanco); 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: transform 0.3s; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
         .product-item:hover { transform: translateY(-5px); }
+        
         .product-img-container { width: 100%; height: 250px; overflow: hidden; border-radius: 5px; margin-bottom: 15px; background-color: #eee; }
         .product-img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .product-title { font-size: 1.2rem; margin: 10px 0; color: var(--color-verde); min-height: 50px; }
-        .product-desc { font-size: 0.95rem; line-height: 1.5; color: #555; }
-        .price { font-weight: bold; font-size: 1.1rem; color: var(--color-tierra); margin-top: 15px; display: block;}
+        
+        .product-title { 
+            font-size: 1.2rem; 
+            margin: 10px 0; 
+            color: var(--color-verde); 
+            min-height: 50px; 
+            /* El título mantiene la fuente Playfair definida en h3 */
+        }
+
+        /* --- AQUÍ ESTÁ EL CAMBIO SOLICITADO --- */
+        /* Afecta a los párrafos dentro de la tarjeta de producto */
+        .product-item p {
+            font-family: 'Times New Roman', Times, serif; /* Fuente Times Roman */
+            font-size: 16px; /* Equivalente a tamaño 12 puntos en editores de texto */
+            line-height: 1.4; /* Espaciado para que no se vea amontonado */
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .price { 
+            font-family: 'Lato', sans-serif; /* Mantenemos el precio limpio y moderno */
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            color: var(--color-tierra); 
+            margin-top: 15px; 
+            display: block;
+        }
 
         /* Botones */
-        .btn { background-color: var(--color-verde); color: var(--blanco); padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem; text-align: center;}
+        .btn { background-color: var(--color-verde); color: var(--blanco); padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem; text-align: center; font-family: 'Lato', sans-serif;}
         .btn:hover { background-color: var(--color-tierra); }
         
         .btn-back {
@@ -105,13 +140,11 @@
                 </div>
                 <div>
                     <h3 class="product-title">Kit Tratamiento ECO</h3>
-                    <div class="product-desc">
-                        <p>Lo mejor del Romero + La nutrición del Aguacate.</p>
-                        <p>✅ Acelera el crecimiento.</p>
-                        <p>✅ Controla la caspa.</p>
-                        <p>✅ Volumen espectacular.</p>
-                        <p>🚫 Fórmula limpia SIN SAL.</p>
-                    </div>
+                    <p>Lo mejor del Romero + La nutrición del Aguacate es el dúo perfecto para tu cabello.</p>
+                    <p>✅ Acelera el crecimiento.</p>
+                    <p>✅ Controla la caspa.</p>
+                    <p>✅ Dar un volumen espectacular.</p>
+                    <p>🚫 Fórmula limpia SIN SAL.</p>
                 </div>
                 <div>
                     <span class="price">$15.00</span>
@@ -125,13 +158,11 @@
                 </div>
                 <div>
                     <h3 class="product-title">Kit Tratamiento ECO</h3>
-                    <div class="product-desc">
-                        <p>El dúo tropical perfecto: Sábila y Coco.</p>
-                        <p>💧 Hidrata profundamente.</p>
-                        <p>🥥 Suavidad increíble.</p>
-                        <p>🛡️ Protege y controla caspa.</p>
-                        <p>🚫 Fórmula limpia SIN SAL.</p>
-                    </div>
+                    <p>Descubre el dúo tropical perfecto: Kit ECO de Sábila y Coco.</p>
+                    <p>💧 Hidrata profundamente.</p>
+                    <p>🥥 Aporta una suavidad increíble.</p>
+                    <p>🛡️ Protege y controla la caspa.</p>
+                    <p>🚫 Fórmula limpia SIN SAL.</p>
                 </div>
                 <div>
                     <span class="price">$15.00</span>
@@ -145,11 +176,10 @@
                 </div>
                 <div>
                     <h3 class="product-title">Jabón Líquido Frutos Rojos</h3>
-                    <div class="product-desc">
-                        <p>Manos y cuerpo | 500 ml</p>
-                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
-                        <p><i>Aroma intenso a frutos rojos.</i></p>
-                    </div>
+                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
+                    <p>Consiente tu piel todos los días.</p>
+                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
+                    <p><i>Rico aroma a frutos rojos.</i></p>
                 </div>
                 <div>
                     <span class="price">$3.00</span>
@@ -163,11 +193,10 @@
                 </div>
                 <div>
                     <h3 class="product-title">Jabón Líquido Manzanilla</h3>
-                    <div class="product-desc">
-                        <p>Manos y cuerpo | 500 ml</p>
-                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
-                        <p><i>Relajante aroma a Manzanilla.</i></p>
-                    </div>
+                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
+                    <p>Consiente tu piel todos los días.</p>
+                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
+                    <p><i>Rico aroma a Manzanilla.</i></p>
                 </div>
                 <div>
                     <span class="price">$3.00</span>
@@ -181,11 +210,10 @@
                 </div>
                 <div>
                     <h3 class="product-title">Jabón Líquido Victoria Amore</h3>
-                    <div class="product-desc">
-                        <p>Manos y cuerpo | 500 ml</p>
-                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
-                        <p><i>Sofisticado aroma a Rosas.</i></p>
-                    </div>
+                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
+                    <p>Consiente tu piel todos los días.</p>
+                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
+                    <p><i>Rico aroma a Victoria Amore/Rosas.</i></p>
                 </div>
                 <div>
                     <span class="price">$3.00</span>
@@ -199,11 +227,10 @@
                 </div>
                 <div>
                     <h3 class="product-title">Jabón Líquido Cotton</h3>
-                    <div class="product-desc">
-                        <p>Manos y cuerpo | 500 ml</p>
-                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
-                        <p><i>Aroma a limpieza y frescura.</i></p>
-                    </div>
+                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
+                    <p>Consiente tu piel todos los días.</p>
+                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
+                    <p><i>Rico aroma a frescura.</i></p>
                 </div>
                 <div>
                     <span class="price">$3.00</span>
@@ -217,11 +244,10 @@
                 </div>
                 <div>
                     <h3 class="product-title">Jabón Líquido Granada</h3>
-                    <div class="product-desc">
-                        <p>Manos y cuerpo | 500 ml</p>
-                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
-                        <p><i>Aroma exótico a Granada.</i></p>
-                    </div>
+                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
+                    <p>Consiente tu piel todos los días.</p>
+                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
+                    <p><i>Rico aroma a Granada.</i></p>
                 </div>
                 <div>
                     <span class="price">$3.00</span>
@@ -235,11 +261,10 @@
                 </div>
                 <div>
                     <h3 class="product-title">Jabón Líquido Avena</h3>
-                    <div class="product-desc">
-                        <p>Manos y cuerpo | 500 ml</p>
-                        <p>Consiente tu piel todos los días con Vitamina E, Aloe Vera y Glicerina.</p>
-                        <p><i>Suave aroma a Avena.</i></p>
-                    </div>
+                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
+                    <p>Consiente tu piel todos los días.</p>
+                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
+                    <p><i>Rico aroma a Avena.</i></p>
                 </div>
                 <div>
                     <span class="price">$3.00</span>
