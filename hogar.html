@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidado Personal | ECO</title>
+    <title>Hogar | ECO</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,7 +20,7 @@
         body { font-family: 'Lato', sans-serif; margin: 0; padding: 0; background-color: var(--color-fondo); color: var(--color-texto); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* Navegación idéntica */
+        /* Navegación */
         nav { background-color: var(--blanco); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
         .logo-container { display: flex; align-items: center; }
         .logo-img { height: 50px; margin-right: 10px; width: auto; }
@@ -28,26 +28,67 @@
         .menu a { text-decoration: none; color: var(--color-texto); margin-left: 20px; transition: color 0.3s; }
         .menu a:hover { color: var(--color-verde); }
 
-        /* Header pequeño para página interna */
+        /* --- HEADER MODIFICADO (SOLO IMAGEN) --- */
         .page-header {
-            background-color: var(--color-verde);
-            color: var(--blanco);
-            text-align: center;
-            padding: 60px 20px;
+            background-image: linear-gradient(rgba(30, 50, 20, 0.3), rgba(30, 50, 20, 0.1)), url('Porta_Hogar.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* Ajustamos la altura ya que no hay texto que empuje el contenido */
+            height: 250px; 
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Estilos de la cuadrícula de productos (reutilizados) */
+        /* Cuadrícula de productos */
         .products-section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .product-item { background: var(--blanco); padding: 20px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: transform 0.3s; }
+        
+        .product-item { 
+            background: var(--blanco); 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+            transition: transform 0.3s; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between; 
+        }
         .product-item:hover { transform: translateY(-5px); }
+        
         .product-img-container { width: 100%; height: 250px; overflow: hidden; border-radius: 5px; margin-bottom: 15px; background-color: #eee; }
         .product-img-container img { width: 100%; height: 100%; object-fit: cover; }
-        .product-title { font-size: 1.2rem; margin: 10px 0; color: var(--color-verde); }
-        .price { font-weight: bold; font-size: 1.1rem; color: var(--color-tierra); margin-top: 10px; display: block;}
+        
+        .product-title { 
+            font-size: 1.2rem; 
+            margin: 10px 0; 
+            color: var(--color-verde); 
+            min-height: 50px; 
+        }
+
+        /* Estilos de texto */
+        .product-item p {
+            font-family: 'Times New Roman', Times, serif; 
+            font-size: 16px; 
+            line-height: 1.4; 
+            color: #333;
+            margin: 5px 0;
+        }
+
+        .price { 
+            font-family: 'Lato', sans-serif; 
+            font-weight: bold; 
+            font-size: 1.2rem; 
+            color: var(--color-tierra); 
+            margin-top: 15px; 
+            display: block;
+        }
 
         /* Botones */
-        .btn { background-color: var(--color-verde); color: var(--blanco); padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem;}
+        .btn { background-color: var(--color-verde); color: var(--blanco); padding: 10px 25px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 15px; transition: 0.3s; cursor: pointer; border: none; font-size: 0.9rem; text-align: center; font-family: 'Lato', sans-serif;}
         .btn:hover { background-color: var(--color-tierra); }
         
         .btn-back {
@@ -58,7 +99,7 @@
         }
         .btn-back:hover { background-color: var(--color-texto); color: var(--blanco); }
 
-        /* WhatsApp y Footer idénticos */
+        /* WhatsApp y Footer */
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: var(--whatsapp-color); color: #FFF; border-radius: 50px; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; transition: transform 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); }
         footer { background-color: var(--color-verde); color: var(--blanco); text-align: center; padding: 40px 20px; margin-top: 50px; }
@@ -66,6 +107,7 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; }
             .menu { margin-top: 15px; }
+            .page-header { height: 180px; } /* Ajuste de altura en móviles */
         }
     </style>
 </head>
@@ -74,7 +116,7 @@
     <nav>
         <div class="logo-container">
             <img src="logo-eco.png" alt="Logo ECO" class="logo-img">
-            <span class="logo-text">ECO.</span>
+            <span class="logo-text">ECO</span>
         </div>
         <div class="menu">
             <a href="index.html">Inicio</a> 
@@ -84,8 +126,6 @@
     </nav>
 
     <header class="page-header">
-        <h1>Cuidado Personal</h1>
-        <p>Ingredientes botánicos para nutrir tu piel y cabello.</p>
     </header>
 
     <section class="products-section">
@@ -97,52 +137,250 @@
         </div>
 
         <div class="product-grid">
-            
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="shampoo.png" alt="Shampoo ECO">
+                    <img src="Baby.png" alt="Detergente Liquido ECO   Baby Ternura">
                 </div>
-                <h3 class="product-title">Shampoo Restauración</h3>
-                <p>Romero y Aloe Vera para cabello dañado.</p>
-                <span class="price">$12.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Detergente Liquido ECO Baby Ternura</h3>
+                    <p>Limpia profundamente sin dañar las fibras de la tela ni sus colores</p>
+                    <p>✅ Suave fragancia duradera y Limpieza en cada gota</p>
+                    <p>✅ Excelente para prendas delicdas y de uso diario</p>
+                    <p>✅ Apto para Lavadoras y lavado a mano</p>
+                    <p><i>Fragancia Baby Ternura</i></p>
+                </div>
+                <div>
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+        </div>
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="Nueva.png" alt="Detergente Liquido ECO Ropa Nueva">
+                </div>
+                <div>
+                    <h3 class="product-title">Detergente Liquido ECO Ropa Nueva</h3>
+                    <p>Limpia profundamente sin dañar las fibras de la tela ni sus colores</p>
+                    <p>✅ Suave fragancia duradera y Limpieza en cada gota</p>
+                    <p>✅ Excelente para prendas delicdas y de uso diario</p>
+                    <p>✅ Apto para Lavadoras y lavado a mano</p>
+                    <p><i>Fragancia Ropa Nueva</i></p>
+                </div>
+                <div>
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="jabon.png" alt="Jabon ECO">
+                    <img src="Suavitex.png" alt="Detergente Liquido ECO Suavitex">
                 </div>
-                <h3 class="product-title">Jabón Corporal Avena</h3>
-                <p>Suavidad extrema para pieles sensibles.</p>
-                <span class="price">$8.50</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Detergente Liquido ECO Suavitex</h3>
+                    <p>Limpia profundamente sin dañar las fibras de la tela ni sus colores</p>
+                    <p>✅ Suave fragancia duradera y Limpieza en cada gota</p>
+                    <p>✅ Excelente para prendas delicdas y de uso diario</p>
+                    <p>✅ Apto para Lavadoras y lavado a mano</p>
+                    <p><i>Fragancia a Suavitex</i></p>
+                </div>
+                <div>
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
-
             <div class="product-item">
                 <div class="product-img-container">
-                    <img src="crema.png" alt="Crema Corporal" onerror="this.src='https://via.placeholder.com/300x300?text=Crema+Eco'">
+                    <img src="Sof-Tel.png" alt="Detergente Liquido ECO Sof-Tel">
                 </div>
-                <h3 class="product-title">Crema Hidratante</h3>
-                <p>Manteca de Karité y Lavanda.</p>
-                <span class="price">$15.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Detergente Liquido ECO Sof-Tel</h3>
+                    <p>Limpia profundamente sin dañar las fibras de la tela ni sus colores</p>
+                    <p>✅ Suave fragancia duradera y Limpieza en cada gota</p>
+                    <p>✅ Excelente para prendas delicdas y de uso diario</p>
+                    <p>✅ Apto para Lavadoras y lavado a mano</p>
+                    <p><i>Fragancia Sof-Tel</i></p>
+                </div>
+                <div>
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="Algodon.png" alt="Suavisante de Ropa ECO Caricias de Algodón">
+                </div>
+                <div>
+                    <h3 class="product-title">Suavisante de Ropa ECO Caricias de Algodón</h3>
+                    <p>Nuestro suavisante actua profundamente en la fibra de tu ropa</p>
+                    <p>✅ Suavidad, aroma y comodidad en cada prenda</p>
+                    <p>✅ Fragancia duradera que enamora</p>
+                    <p>✅ Facilita el planchado reduciendo arrugas</p>
+                    <p><i>Fragancia Caricias de Algodón</i></p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
              <div class="product-item">
                 <div class="product-img-container">
-                    <img src="exfoliante.png" alt="Exfoliante" onerror="this.src='https://via.placeholder.com/300x300?text=Exfoliante'">
+                    <img src="suave.png" alt="Suavisante de Ropa ECO Suave Frescura">
                 </div>
-                <h3 class="product-title">Exfoliante de Café</h3>
-                <p>Renovación celular con granos orgánicos.</p>
-                <span class="price">$10.00</span>
-                <br>
-                <a href="#" class="btn">Añadir</a>
+                <div>
+                    <h3 class="product-title">Suavisante de Ropa ECO Suave Frescura</h3>
+                    <p>Nuestro suavisante actua profundamente en la fibra de tu ropa</p>
+                    <p>✅ Suavidad, aroma y comodidad en cada prenda</p>
+                    <p>✅ Fragancia duradera que enamora</p>
+                    <p>✅ Facilita el planchado reduciendo arrugas</p>
+                    <p><i>Fragancia Suave Frescura</i></p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
             </div>
 
-        </div>
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="baby.png" alt="Aromatizante Textil ECO Ternura Baby"
+                </div>
+                <div>
+                    <h3 class="product-title">Aromatizante Textil ECO Ternura Baby</h3>
+                    <p>Nuestro Aromatizante textil elimina malos olores y deja aromas duraderos</p>
+                    <p>✅ Bueno para prendas, cortinas, sábanas, muebles y zapatos</p>
+                    <p>✅ Secado rapido, no mancha y seguro para todo tipo de tela </p>
+                    <p>✅ Refresca tus telas con solo un toque</p>
+                    <p><i>Fragancia Ternura Baby</i></p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="nueva.png" alt="Aromatizante Textil ECO Ropa Nueva"
+                </div>
+                <div>
+                    <h3 class="product-title">Aromatizante Textil ECO Ropa Nueva</h3>
+                    <p>Nuestro Aromatizante textil elimina malos olores y deja aromas duraderos</p>
+                    <p>✅ Bueno para prendas, cortinas, sábanas, muebles y zapatos</p>
+                    <p>✅ Secado rapido, no mancha y seguro para todo tipo de tela </p>
+                    <p>✅ Refresca tus telas con solo un toque</p>
+                    <p><i>Fragancia Ropa Nueva</i></p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="baby.png" alt="Aromatizante Textil ECO Suave Frescura"
+                </div>
+                <div>
+                    <h3 class="product-title">Aromatizante Textil ECO Suave Frescura</h3>
+                    <p>Nuestro Aromatizante textil elimina malos olores y deja aromas duraderos</p>
+                    <p>✅ Bueno para prendas, cortinas, sábanas, muebles y zapatos</p>
+                    <p>✅ Secado rapido, no mancha y seguro para todo tipo de tela </p>
+                    <p>✅ Refresca tus telas con solo un toque</p>
+                    <p><i>Fragancia Suave Frescura</i></p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="baby.png" alt="Aromatizante Textil ECO Caricias de algodón"
+                </div>
+                <div>
+                    <h3 class="product-title">Aromatizante Textil ECO Caricias de algodón</h3>
+                    <p>Nuestro Aromatizante textil elimina malos olores y deja aromas duraderos</p>
+                    <p>✅ Bueno para prendas, cortinas, sábanas, muebles y zapatos</p>
+                    <p>✅ Secado rapido, no mancha y seguro para todo tipo de tela </p>
+                    <p>✅ Refresca tus telas con solo un toque</p>
+                    <p><i>Fragancia Caricias de algodón</i></p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+    <div class="product-item">
+                <div class="product-img-container">
+                    <img src="Sandia.png" alt="Lavavajilla ECO Sandia"
+                </div>
+                <div>
+                    <h3 class="product-title">Lavavajilla ECO Sandia</h3>
+                    <p>Lavavajilla ECO poder desengrasante maximo</p>
+                    <p>✅ Limpieza desliciosa y refrescante</p>
+                    <p>✅ Cuida tus manos con Vitamina E y Glicerina </p>
+                    <p>✅ Elimina la grasa con potencia</p>
+                    
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+
+        <div class="product-item">
+                <div class="product-img-container">
+                    <img src="Naranja.png" alt="Lavavajilla ECO Naranja"
+                </div>
+                <div>
+                    <h3 class="product-title">Lavavajilla ECO Naranja</h3>
+                    <p>Lavavajilla ECO poder desengrasante maximo</p>
+                    <p>✅ Limpieza desliciosa y refrescante</p>
+                    <p>✅ Cuida tus manos con Vitamina E y Glicerina </p>
+                    <p>✅ Elimina la grasa con potencia</p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+            <div class="product-item">
+                <div class="product-img-container">
+                    <img src="Limón.png" alt="Lavavajilla ECO Limón"
+                </div>
+                <div>
+                    <h3 class="product-title">Lavavajilla ECO Limón</h3>
+                    <p>Lavavajilla ECO poder desengrasante maximo</p>
+                    <p>✅ Limpieza desliciosa y refrescante</p>
+                    <p>✅ Cuida tus manos con Vitamina E y Glicerina </p>
+                    <p>✅ Elimina la grasa con potencia</p>
+                    
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
+                <div class="product-item">
+                <div class="product-img-container">
+                    <img src="uva.png" alt="Lavavajilla ECO UVA"
+                </div>
+                <div>
+                    <h3 class="product-title">Lavavajilla ECO UVA</h3>
+                    <p>Lavavajilla ECO poder desengrasante maximo</p>
+                    <p>✅ Limpieza desliciosa y refrescante</p>
+                    <p>✅ Cuida tus manos con Vitamina E y Glicerina </p>
+                    <p>✅ Elimina la grasa con potencia</p>
+                </div>
+                <div>
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
+                </div>
+            </div>
     </section>
 
     <a href="https://wa.me/593993372107?text=Hola%20ECO%2C%20me%20interesa%20la%20linea%20de%20cuidado%20personal" class="whatsapp-float" target="_blank">
