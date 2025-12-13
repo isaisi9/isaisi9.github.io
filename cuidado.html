@@ -28,37 +28,19 @@
         .menu a { text-decoration: none; color: var(--color-texto); margin-left: 20px; transition: color 0.3s; }
         .menu a:hover { color: var(--color-verde); }
 
-        /* --- HEADER MODIFICADO (NUEVO ESTILO) --- */
+        /* --- HEADER MODIFICADO (SOLO IMAGEN) --- */
         .page-header {
-            /* Cambio 1: Overlay verde oscuro en lugar de negro para mejor branding */
-            background-image: linear-gradient(rgba(30, 50, 20, 0.7), rgba(30, 50, 20, 0.5)), url('Portada_cuidado.png');
+            background-image: linear-gradient(rgba(30, 50, 20, 0.3), rgba(30, 50, 20, 0.1)), url('Portada_cuidado.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             
-            color: var(--blanco);
-            text-align: center;
-            /* Aumentamos el padding para que la imagen luzca más */
-            padding: 100px 20px;
-        }
-
-        /* Cambio 2: Estilo de las letras del título */
-        .page-header h1 {
-            font-size: 3.5rem; /* Letra mucho más grande */
-            font-weight: 700;
-            text-transform: uppercase; /* Mayúsculas para impacto */
-            letter-spacing: 3px;
-            margin: 0;
-        }
-
-        /* Cambio 3: Estilo del subtítulo */
-        .page-header p {
-            font-family: 'Playfair Display', serif; /* Usamos la fuente elegante */
-            font-size: 1.5rem;
-            font-style: italic; /* Cursiva para elegancia */
-            margin-top: 15px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-            opacity: 0.9;
+            /* Ajustamos la altura ya que no hay texto que empuje el contenido */
+            height: 250px; 
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Cuadrícula de productos */
@@ -87,7 +69,7 @@
             min-height: 50px; 
         }
 
-        /* Estilos de texto solicitados previamente */
+        /* Estilos de texto */
         .product-item p {
             font-family: 'Times New Roman', Times, serif; 
             font-size: 16px; 
@@ -125,7 +107,7 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; }
             .menu { margin-top: 15px; }
-            .page-header h1 { font-size: 2.5rem; } /* Ajuste para móviles */
+            .page-header { height: 180px; } /* Ajuste de altura en móviles */
         }
     </style>
 </head>
@@ -142,166 +124,11 @@
             <a href="index.html#contacto">Contacto</a>
         </div>
     </nav>
+
+    <header class="page-header">
+    </header>
+
     <section class="products-section">
         
         <div style="margin-bottom: 30px;">
             <a href="index.html" class="btn btn-back">
-                <i class="fas fa-arrow-left"></i> Volver al Inicio
-            </a>
-        </div>
-
-        <div class="product-grid">
-            
-            <div class="product-item">
-                <div class="product-img-container">
-                    <img src="romero.png" alt="Kit Tratamiento ECO Romero">
-                </div>
-                <div>
-                    <h3 class="product-title">Kit Tratamiento ECO</h3>
-                    <p>Lo mejor del Romero + La nutrición del Aguacate es el dúo perfecto para tu cabello.</p>
-                    <p>✅ Acelera el crecimiento.</p>
-                    <p>✅ Controla la caspa.</p>
-                    <p>✅ Dar un volumen espectacular.</p>
-                    <p>🚫 Fórmula limpia SIN SAL.</p>
-                </div>
-                <div>
-                    <span class="price">$15.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="product-img-container">
-                    <img src="sabila.png" alt="Kit Tratamiento ECO Sábila">
-                </div>
-                <div>
-                    <h3 class="product-title">Kit Tratamiento ECO</h3>
-                    <p>Descubre el dúo tropical perfecto: Kit ECO de Sábila y Coco.</p>
-                    <p>💧 Hidrata profundamente.</p>
-                    <p>🥥 Aporta una suavidad increíble.</p>
-                    <p>🛡️ Protege y controla la caspa.</p>
-                    <p>🚫 Fórmula limpia SIN SAL.</p>
-                </div>
-                <div>
-                    <span class="price">$15.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="product-img-container">
-                    <img src="frutos.png" alt="Jabón Liquido Frutos Rojos" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
-                </div>
-                <div>
-                    <h3 class="product-title">Jabón Líquido Frutos Rojos</h3>
-                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
-                    <p>Consiente tu piel todos los días.</p>
-                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
-                    <p><i>Rico aroma a frutos rojos.</i></p>
-                </div>
-                <div>
-                    <span class="price">$3.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-
-             <div class="product-item">
-                <div class="product-img-container">
-                    <img src="manzanilla.png" alt="Jabón Liquido Manzanilla" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
-                </div>
-                <div>
-                    <h3 class="product-title">Jabón Líquido Manzanilla</h3>
-                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
-                    <p>Consiente tu piel todos los días.</p>
-                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
-                    <p><i>Rico aroma a Manzanilla.</i></p>
-                </div>
-                <div>
-                    <span class="price">$3.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="product-img-container">
-                    <img src="rosas.png" alt="Jabón Liquido Rosas" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
-                </div>
-                <div>
-                    <h3 class="product-title">Jabón Líquido Victoria Amore</h3>
-                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
-                    <p>Consiente tu piel todos los días.</p>
-                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
-                    <p><i>Rico aroma a Victoria Amore/Rosas.</i></p>
-                </div>
-                <div>
-                    <span class="price">$3.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="product-img-container">
-                    <img src="cotton.png" alt="Jabón Liquido Cotton" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
-                </div>
-                <div>
-                    <h3 class="product-title">Jabón Líquido Cotton</h3>
-                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
-                    <p>Consiente tu piel todos los días.</p>
-                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
-                    <p><i>Rico aroma a frescura.</i></p>
-                </div>
-                <div>
-                    <span class="price">$3.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="product-img-container">
-                    <img src="granada.png" alt="Jabón Liquido Granada" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Eco'">
-                </div>
-                <div>
-                    <h3 class="product-title">Jabón Líquido Granada</h3>
-                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
-                    <p>Consiente tu piel todos los días.</p>
-                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
-                    <p><i>Rico aroma a Granada.</i></p>
-                </div>
-                <div>
-                    <span class="price">$3.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-
-            <div class="product-item">
-                <div class="product-img-container">
-                    <img src="avena.png" alt="Jabón Liquido Avena" onerror="this.src='https://via.placeholder.com/300x300?text=Jabón+Avena'">
-                </div>
-                <div>
-                    <h3 class="product-title">Jabón Líquido Avena</h3>
-                    <p>Jabón líquido de tocador para manos y cuerpo 500 ml.</p>
-                    <p>Consiente tu piel todos los días.</p>
-                    <p>Con Vitamina E, Aloe Vera y Glicerina.</p>
-                    <p><i>Rico aroma a Avena.</i></p>
-                </div>
-                <div>
-                    <span class="price">$3.00</span>
-                    <a href="#" class="btn" style="width: 100%; box-sizing: border-box;">Añadir</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <a href="https://wa.me/593993372107?text=Hola%20ECO%2C%20me%20interesa%20la%20linea%20de%20cuidado%20personal" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <footer>
-        <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
-            <img src="logo-eco.png" alt="Logo ECO" style="height: 40px; filter: brightness(0) invert(1);">
-        </div>
-        <p>&copy; 2025 ECO Products.</p>
-    </footer>
-
-</body>
-</html>
