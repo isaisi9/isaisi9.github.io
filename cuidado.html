@@ -28,12 +28,17 @@
         .menu a { text-decoration: none; color: var(--color-texto); margin-left: 20px; transition: color 0.3s; }
         .menu a:hover { color: var(--color-verde); }
 
-        /* Header de Página */
+        /* --- HEADER MODIFICADO CON IMAGEN --- */
         .page-header {
-            background-color: var(--color-verde);
+            /* Imagen de fondo con una capa oscura suave para que se lea el texto */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1608248597279-f99d160bfbc8?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover; /* La imagen cubre todo el espacio */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat;
+            
             color: var(--blanco);
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px; /* Un poco más de altura para lucir la imagen */
         }
 
         /* Cuadrícula de productos */
@@ -60,21 +65,19 @@
             margin: 10px 0; 
             color: var(--color-verde); 
             min-height: 50px; 
-            /* El título mantiene la fuente Playfair definida en h3 */
         }
 
-        /* --- AQUÍ ESTÁ EL CAMBIO SOLICITADO --- */
-        /* Afecta a los párrafos dentro de la tarjeta de producto */
+        /* Estilos de texto solicitados previamente */
         .product-item p {
-            font-family: 'Times New Roman', Times, serif; /* Fuente Times Roman */
-            font-size: 16px; /* Equivalente a tamaño 12 puntos en editores de texto */
-            line-height: 1.4; /* Espaciado para que no se vea amontonado */
+            font-family: 'Times New Roman', Times, serif; 
+            font-size: 16px; 
+            line-height: 1.4; 
             color: #333;
             margin: 5px 0;
         }
 
         .price { 
-            font-family: 'Lato', sans-serif; /* Mantenemos el precio limpio y moderno */
+            font-family: 'Lato', sans-serif; 
             font-weight: bold; 
             font-size: 1.2rem; 
             color: var(--color-tierra); 
