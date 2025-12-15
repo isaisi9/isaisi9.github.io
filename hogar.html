@@ -10,6 +10,7 @@
     <style>
         :root {
             --color-fondo: #F9F7F2;
+            /* Verde ligeramente más saturado para denotar "Hogar/Limpieza" */
             --color-verde: #40521B; 
             --color-verde-claro: #5A702A;
             --color-tierra: #8C6A4B;
@@ -49,6 +50,7 @@
         }
         .menu a:hover { color: var(--color-verde); }
 
+        /* Estilos del icono hamburguesa */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -64,13 +66,26 @@
             border-radius: 5px;
         }
 
+        /* --- HEADER IMAGEN --- */
+        /*.page-header {*/
+            /* Gradiente un poco más fuerte para diferenciar la sección */
+            /*background-image: linear-gradient(rgba(64, 82, 27, 0.4), rgba(64, 82, 27, 0.2)), url('Porta_Hogar.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 250px; 
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        } */
         /* --- HEADER IMAGEN AJUSTADO --- */
         .page-header {
             /* Ruta de tu imagen */
             background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('Porta_Hogar.png');
             
             /* Claves para que no se recorte mal */
-            background-size: cover; 
+            background-size: 100% 100%; 
             background-position: center center;
             width: 100%;
             
@@ -238,17 +253,18 @@
         
         footer { background-color: var(--color-verde); color: var(--blanco); text-align: center; padding: 40px 20px; margin-top: 50px; }
 
-        /* --- RESPONSIVE --- */
+        /* --- RESPONSIVE / MEDIA QUERIES --- */
         @media (max-width: 768px) {
-            .page-header { aspect-ratio: 2/1; } /* Más alto en móvil */
+            .page-header { height: 180px; }
             .filter-container { flex-wrap: wrap; }
             .filter-btn { padding: 8px 15px; font-size: 0.85rem; margin-bottom: 5px; }
 
+            /* Menú Móvil */
             .hamburger { display: flex; }
             
             .menu {
                 position: absolute;
-                top: 70px; 
+                top: 70px; /* Altura del nav */
                 left: 0;
                 width: 100%;
                 background-color: var(--blanco);
@@ -263,12 +279,16 @@
             }
 
             .menu.active {
-                max-height: 300px;
+                max-height: 300px; /* Suficiente para los items */
                 padding: 20px 0;
             }
 
-            .menu a { margin: 0; font-size: 1.1rem; }
-            
+            .menu a {
+                margin: 0;
+                font-size: 1.1rem;
+            }
+
+            /* Animación Hamburguesa */
             .hamburger.active .bar:nth-child(2) { opacity: 0; }
             .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
@@ -307,141 +327,291 @@
             <button class="filter-btn" onclick="filterProducts('suavizante', this)">Suavizantes</button>
             <button class="filter-btn" onclick="filterProducts('aromatizante', this)">Aromatizantes</button>
             <button class="filter-btn" onclick="filterProducts('lavavajilla', this)">Lavavajillas</button>
-            <button class="filter-btn" onclick="filterProducts('desinfectante', this)">Desinfectantes</button>
         </div>
 
         <div class="product-grid" id="productGrid">
             
             <div class="product-item" data-category="detergente">
-                <div class="product-img-container"><img src="Baby.png" alt="Detergente Baby"></div>
+                <div class="product-img-container">
+                    <img src="Baby.png" alt="Detergente Liquido ECO Baby Ternura">
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Detergente Baby Ternura</h3>
-                    <p>Limpia sin dañar las fibras.</p>
+                    <h3 class="product-title">Detergente Líquido Baby Ternura</h3>
+                    <p>Limpia profundamente sin dañar las fibras.</p>
+                    <p>✅ Suave fragancia duradera.</p>
+                    <p>✅ Excelente para prendas delicadas.</p>
                     <p class="fragancia-note">Fragancia: Baby Ternura</p>
                 </div>
-                <div class="price-container"><span class="price">$15.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
+
             <div class="product-item" data-category="detergente">
-                <div class="product-img-container"><img src="Nueva.png" alt="Detergente Ropa Nueva"></div>
+                <div class="product-img-container">
+                    <img src="Nueva.png" alt="Detergente Liquido ECO Ropa Nueva">
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Detergente Ropa Nueva</h3>
-                    <p>Mantiene colores vivos.</p>
+                    <h3 class="product-title">Detergente Líquido Ropa Nueva</h3>
+                    <p>Limpia profundamente manteniendo colores vivos.</p>
+                    <p>✅ Limpieza profunda en cada gota.</p>
+                    <p>✅ Excelente para prendas de uso diario.</p>
                     <p class="fragancia-note">Fragancia: Ropa Nueva</p>
                 </div>
-                <div class="price-container"><span class="price">$15.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
+
             <div class="product-item" data-category="detergente">
-                <div class="product-img-container"><img src="Suavitex.png" alt="Detergente Suavitex"></div>
+                <div class="product-img-container">
+                    <img src="Suavitex.png" alt="Detergente Liquido ECO Suavitex">
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Detergente Suavitex</h3>
-                    <p>Protección y limpieza total.</p>
+                    <h3 class="product-title">Detergente Líquido Suavitex</h3>
+                    <p>Protección y limpieza total para tu ropa.</p>
+                    <p>✅ Suave fragancia duradera.</p>
+                    <p>✅ Excelente para prendas de uso diario.</p>
                     <p class="fragancia-note">Fragancia: Suavitex</p>
                 </div>
-                <div class="price-container"><span class="price">$15.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
+
             <div class="product-item" data-category="detergente">
-                <div class="product-img-container"><img src="Sof-Tel.png" alt="Detergente Sof-Tel"></div>
+                <div class="product-img-container">
+                    <img src="Sof-Tel.png" alt="Detergente Liquido ECO Sof-Tel">
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Detergente Sof-Tel</h3>
-                    <p>Cuidado para tejidos sintéticos.</p>
+                    <h3 class="product-title">Detergente Líquido Sof-Tel</h3>
+                    <p>Cuidado experto para tejidos sintéticos.</p>
+                    <p>✅ Fragancia intensa y duradera.</p>
+                    <p>✅ Limpieza efectiva sin residuos.</p>
                     <p class="fragancia-note">Fragancia: Sof-Tel</p>
                 </div>
-                <div class="price-container"><span class="price">$15.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$15.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item" data-category="suavizante">
-                <div class="product-img-container"><img src="Algo.png" alt="Suavizante Algodón"></div>
+                <div class="product-img-container">
+                    <img src="Algo.png" alt="Suavizante ECO Caricias de Algodón">
+                </div>
                 <div class="product-details">
                     <h3 class="product-title">Suavizante Caricias de Algodón</h3>
-                    <p>Suavidad y aroma profundo.</p>
+                    <p>Actúa profundamente en la fibra de tu ropa.</p>
+                    <p>✅ Suavidad, aroma y comodidad.</p>
+                    <p>✅ Facilita el planchado.</p>
                     <p class="fragancia-note">Fragancia: Caricias de Algodón</p>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
+
             <div class="product-item" data-category="suavizante">
-                <div class="product-img-container"><img src="frescura.png" alt="Suavizante Frescura"></div>
+                <div class="product-img-container">
+                    <img src="frescura.png" alt="Suavizante ECO Suave Frescura">
+                </div>
                 <div class="product-details">
                     <h3 class="product-title">Suavizante Suave Frescura</h3>
-                    <p>Frescura que perdura días.</p>
+                    <p>Frescura que perdura por días.</p>
+                    <p>✅ Suavidad extrema en toallas y sábanas.</p>
+                    <p>✅ Facilita el planchado.</p>
                     <p class="fragancia-note">Fragancia: Suave Frescura</p>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
 
             <div class="product-item" data-category="aromatizante">
-                <div class="product-img-container"><img src="ternura.png" alt="Aromatizante Baby"></div>
+                <div class="product-img-container">
+                    <img src="ternura.png" alt="Aromatizante Textil ECO Ternura Baby"> 
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Aromatizante Ternura Baby</h3>
-                    <p>Elimina olores al instante.</p>
+                    <h3 class="product-title">Aromatizante Textil Ternura Baby</h3>
+                    <p>Elimina malos olores y deja aromas duraderos.</p>
+                    <p>✅ Ideal para cortinas y muebles.</p>
+                    <p>✅ Secado rápido, no mancha.</p>
                     <p class="fragancia-note">Fragancia: Ternura Baby</p>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
+
             <div class="product-item" data-category="aromatizante">
-                <div class="product-img-container"><img src="ropa.png" alt="Aromatizante Ropa Nueva"></div>
+                <div class="product-img-container">
+                    <img src="ropa.png" alt="Aromatizante Textil ECO Ropa Nueva">
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Aromatizante Ropa Nueva</h3>
-                    <p>Refresca tus telas.</p>
+                    <h3 class="product-title">Aromatizante Textil Ropa Nueva</h3>
+                    <p>Refresca tus telas con solo un toque.</p>
+                    <p>✅ Ideal para cortinas y muebles.</p>
+                    <p>✅ Secado rápido, no mancha.</p>
                     <p class="fragancia-note">Fragancia: Ropa Nueva</p>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
+            
             <div class="product-item" data-category="aromatizante">
-                <div class="product-img-container"><img src="Fres.png" alt="Aromatizante Frescura"></div>
+                <div class="product-img-container">
+                    <img src="Fres.png" alt="Aromatizante Textil ECO Suave Frescura"> 
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Aromatizante Suave Frescura</h3>
-                    <p>Ideal para cortinas y muebles.</p>
+                    <h3 class="product-title">Aromatizante Textil Suave Frescura</h3>
+                    <p>Elimina malos olores y deja aromas duraderos.</p>
+                    <p>✅ Ideal para cortinas y muebles.</p>
+                    <p>✅ Secado rápido, no mancha.</p>
                     <p class="fragancia-note">Fragancia: Suave Frescura</p>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
+            
             <div class="product-item" data-category="aromatizante">
-                <div class="product-img-container"><img src="Algodón.png" alt="Aromatizante Algodón"></div>
+                <div class="product-img-container">
+                    <img src="Algodón.png" alt="Aromatizante Textil ECO Caricias de Algodón"> 
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Aromatizante Caricias Algodón</h3>
-                    <p>Secado rápido, no mancha.</p>
+                    <h3 class="product-title">Aromatizante Textil Caricias de Algodón</h3>
+                    <p>Elimina malos olores y deja aromas duraderos.</p>
+                    <p>✅ Ideal para cortinas y muebles.</p>
+                    <p>✅ Secado rápido, no mancha.</p>
                     <p class="fragancia-note">Fragancia: Caricias de Algodón</p>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
             </div>
             
             <div class="product-item" data-category="lavavajilla">
-                <div class="product-img-container"><img src="sandia.png" alt="Lavavajilla Sandia"></div>
+                <div class="product-img-container">
+                    <img src="sandia.png" alt="Lavavajilla ECO Sandia">
+                </div>
                 <div class="product-details">
                     <h3 class="product-title">Lavavajilla ECO Sandía</h3>
-                    <p>Poder desengrasante frutal.</p>
+                    <p>Poder desengrasante máximo con aroma frutal.</p>
+                    <p>✅ Limpieza deliciosa y refrescante.</p>
+                    <p>✅ Cuida tus manos con Vitamina E.</p>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
-            </div>
-            <div class="product-item" data-category="lavavajilla">
-                <div class="product-img-container"><img src="Naranja.jpg" alt="Lavavajilla Naranja"></div>
-                <div class="product-details">
-                    <h3 class="product-title">Lavavajilla ECO Naranja</h3>
-                    <p>Brillo instantáneo y limpieza.</p>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
                 </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
-            </div>
-             <div class="product-item" data-category="lavavajilla">
-                <div class="product-img-container"><img src="Limón.png" alt="Lavavajilla Limón"></div>
-                <div class="product-details">
-                    <h3 class="product-title">Lavavajilla ECO Limón</h3>
-                    <p>Máximo poder contra la grasa.</p>
-                </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
-            </div>
-             <div class="product-item" data-category="lavavajilla">
-                <div class="product-img-container"><img src="uva.png" alt="Lavavajilla Uva"></div>
-                <div class="product-details">
-                    <h3 class="product-title">Lavavajilla ECO Uva</h3>
-                    <p>Toque dulce y diferente.</p>
-                </div>
-                <div class="price-container"><span class="price">$3.00</span><a href="#" class="btn">Añadir</a></div>
             </div>
 
-            <div class="product-item" data-category="desinfectante">
-                <div class="product-img-container"><img src="Lavanda.png" alt="Desinfectante Lavanda"></div>
+            <div class="product-item" data-category="lavavajilla">
+                <div class="product-img-container">
+                    <img src="Naranja.jpg" alt="Lavavajilla ECO Naranja">
+                </div>
                 <div class="product-details">
-                    <h3 class="product-title">Desinfectante de Pisos Lavanda</h3>
-                    <p>Relajante aroma y desinfección total.</p>
-                    <p>✅ Antibacterial efectivo.</p>
-                    <p class="fragancia-note">Fragancia
+                    <h3 class="product-title">Lavavajilla ECO Naranja</h3>
+                    <p>El clásico aroma cítrico que corta la grasa.</p>
+                    <p>✅ Limpieza profunda.</p>
+                    <p>✅ Brillo instantáneo.</p>
+                </div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
+            </div>
+
+             <div class="product-item" data-category="lavavajilla">
+                <div class="product-img-container">
+                    <img src="Limón.png" alt="Lavavajilla ECO Limón">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Lavavajilla ECO Limón</h3>
+                    <p>Máximo poder contra la grasa difícil.</p>
+                    <p>✅ Limpieza profunda y aroma fresco.</p>
+                    <p>✅ Elimina olores fuertes.</p>
+                </div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
+            </div>
+
+             <div class="product-item" data-category="lavavajilla">
+                <div class="product-img-container">
+                    <img src="uva.png" alt="Lavavajilla ECO Uva">
+                </div>
+                <div class="product-details">
+                    <h3 class="product-title">Lavavajilla ECO Uva</h3>
+                    <p>Un toque dulce y diferente en tu cocina.</p>
+                    <p>✅ Limpieza deliciosa y refrescante.</p>
+                    <p>✅ Espuma abundante y duradera.</p>
+                </div>
+                <div class="price-container">
+                    <span class="price">$3.00</span>
+                    <a href="#" class="btn">Añadir</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <a href="https://wa.me/593993372107?text=Hola%20ECO%2C%20me%20interesa%20la%20linea%20de%20Hogar" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="logo-container" style="justify-content: center; margin-bottom: 20px;">
+            <img src="logo-eco.png" alt="Logo ECO" style="height: 40px; filter: brightness(0) invert(1);">
+        </div>
+        <p>&copy; 2025 ECO Products - Línea Hogar.</p>
+    </footer>
+
+    <script>
+        // Función para el menú hamburguesa
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Función de filtrado optimizada (acepta 'btn')
+        function filterProducts(category, btn) {
+            const products = document.querySelectorAll('.product-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Actualizar botón activo
+            buttons.forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+
+            products.forEach(product => {
+                const productCategory = product.getAttribute('data-category');
+                
+                if (category === 'all' || productCategory === category) {
+                    product.style.display = 'flex'; 
+                    // Reiniciar animación
+                    product.style.animation = 'none';
+                    product.offsetHeight; /* Trigger reflow */
+                    product.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    product.style.display = 'none'; 
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
