@@ -10,7 +10,9 @@
     <style>
         :root {
             --color-fondo: #F9F7F2;
-            --color-verde: #4A5D23;
+            /* Verde ligeramente más saturado para denotar "Hogar/Limpieza" */
+            --color-verde: #40521B; 
+            --color-verde-claro: #5A702A;
             --color-tierra: #8C6A4B;
             --color-texto: #333333;
             --blanco: #ffffff;
@@ -21,17 +23,53 @@
         body { font-family: 'Lato', sans-serif; margin: 0; padding: 0; background-color: var(--color-fondo); color: var(--color-texto); }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
 
-        /* Navegación */
-        nav { background-color: var(--blanco); padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .logo-container { display: flex; align-items: center; }
+        /* --- NAVEGACIÓN Y MENÚ HAMBURGUESA --- */
+        nav { 
+            background-color: var(--blanco); 
+            padding: 1rem 1.5rem; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+
+        .logo-container { display: flex; align-items: center; z-index: 1001; }
         .logo-img { height: 50px; margin-right: 10px; width: auto; }
         .logo-text { font-size: 1.5rem; font-weight: bold; color: var(--color-verde); letter-spacing: 2px; }
-        .menu a { text-decoration: none; color: var(--color-texto); margin-left: 20px; transition: color 0.3s; font-weight: 500; }
+
+        .menu { display: flex; align-items: center; }
+        .menu a { 
+            text-decoration: none; 
+            color: var(--color-texto); 
+            margin-left: 20px; 
+            transition: color 0.3s; 
+            font-weight: 500; 
+        }
         .menu a:hover { color: var(--color-verde); }
 
-        /* Header Imagen */
+        /* Estilos del icono hamburguesa */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 1001;
+        }
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: var(--color-verde);
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        /* --- HEADER IMAGEN --- */
         .page-header {
-            background-image: linear-gradient(rgba(30, 50, 20, 0.3), rgba(30, 50, 20, 0.1)), url('Porta_Hogar.png');
+            /* Gradiente un poco más fuerte para diferenciar la sección */
+            background-image: linear-gradient(rgba(64, 82, 27, 0.4), rgba(64, 82, 27, 0.2)), url('Porta_Hogar.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -68,17 +106,16 @@
         .filter-btn:hover, .filter-btn.active {
             background-color: var(--color-verde);
             color: var(--blanco);
-            box-shadow: 0 4px 10px rgba(74, 93, 35, 0.3);
+            box-shadow: 0 4px 10px rgba(64, 82, 27, 0.3);
         }
 
-        /* --- CUADRÍCULA DE PRODUCTOS AJUSTADA --- */
+        /* --- CUADRÍCULA DE PRODUCTOS --- */
         .products-section { padding: 60px 20px; max-width: 1250px; margin: 0 auto; }
         
         .product-grid { 
             display: grid; 
-            /* AQUÍ ESTÁ EL CAMBIO: minmax(275px, 1fr) asegura que solo quepan 4 */
             grid-template-columns: repeat(auto-fill, minmax(275px, 1fr)); 
-            gap: 25px; /* Espacio equilibrado */
+            gap: 25px; 
         }
         
         .product-item { 
@@ -107,7 +144,7 @@
         
         .product-img-container { 
             width: 100%; 
-            height: 200px; /* Altura ideal para 4 columnas */
+            height: 200px; 
             overflow: hidden; 
             border-radius: 8px; 
             margin-bottom: 15px; 
@@ -192,28 +229,50 @@
         }
         .btn:hover { background-color: var(--color-tierra); }
         
-        .btn-back {
-            background-color: transparent;
-            color: var(--color-texto);
-            border: 1px solid var(--color-texto);
-            display: inline-block;
-            width: auto;
-            margin-bottom: 20px;
-            padding: 8px 20px;
-        }
-        .btn-back:hover { background-color: var(--color-texto); color: var(--blanco); }
-
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 30px; right: 30px; background-color: var(--whatsapp-color); color: #FFF; border-radius: 50px; text-align: center; display: flex; align-items: center; justify-content: center; font-size: 35px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 9999; text-decoration: none; transition: transform 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); }
         
         footer { background-color: var(--color-verde); color: var(--blanco); text-align: center; padding: 40px 20px; margin-top: 50px; }
 
+        /* --- RESPONSIVE / MEDIA QUERIES --- */
         @media (max-width: 768px) {
-            nav { flex-direction: column; }
-            .menu { margin-top: 15px; }
             .page-header { height: 180px; }
             .filter-container { flex-wrap: wrap; }
             .filter-btn { padding: 8px 15px; font-size: 0.85rem; margin-bottom: 5px; }
+
+            /* Menú Móvil */
+            .hamburger { display: flex; }
+            
+            .menu {
+                position: absolute;
+                top: 70px; /* Altura del nav */
+                left: 0;
+                width: 100%;
+                background-color: var(--blanco);
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-out, padding 0.4s ease;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            }
+
+            .menu.active {
+                max-height: 300px; /* Suficiente para los items */
+                padding: 20px 0;
+            }
+
+            .menu a {
+                margin: 0;
+                font-size: 1.1rem;
+            }
+
+            /* Animación Hamburguesa */
+            .hamburger.active .bar:nth-child(2) { opacity: 0; }
+            .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
         }
     </style>
 </head>
@@ -224,7 +283,14 @@
             <img src="logo-eco.png" alt="Logo ECO" class="logo-img">
             <span class="logo-text">ECO</span>
         </div>
-        <div class="menu">
+        
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <div class="menu" id="navMenu">
             <a href="index.html">Inicio</a> 
             <a href="index.html#catalogo">Colecciones</a>
             <a href="index.html#contacto">Contacto</a>
@@ -232,22 +298,16 @@
     </nav>
 
     <header class="page-header">
-    </header>
+        </header>
 
     <section class="products-section">
         
-        <div style="margin-bottom: 20px;">
-            <a href="index.html" class="btn btn-back">
-                <i class="fas fa-arrow-left"></i> Volver al Inicio
-            </a>
-        </div>
-
         <div class="filter-container">
-            <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
-            <button class="filter-btn" onclick="filterProducts('detergente')">Detergentes</button>
-            <button class="filter-btn" onclick="filterProducts('suavizante')">Suavizantes</button>
-            <button class="filter-btn" onclick="filterProducts('aromatizante')">Aromatizantes</button>
-            <button class="filter-btn" onclick="filterProducts('lavavajilla')">Lavavajillas</button>
+            <button class="filter-btn active" onclick="filterProducts('all', this)">Todos</button>
+            <button class="filter-btn" onclick="filterProducts('detergente', this)">Detergentes</button>
+            <button class="filter-btn" onclick="filterProducts('suavizante', this)">Suavizantes</button>
+            <button class="filter-btn" onclick="filterProducts('aromatizante', this)">Aromatizantes</button>
+            <button class="filter-btn" onclick="filterProducts('lavavajilla', this)">Lavavajillas</button>
         </div>
 
         <div class="product-grid" id="productGrid">
@@ -422,7 +482,7 @@
                 </div>
             </div>
             
-             <div class="product-item" data-category="lavavajilla">
+            <div class="product-item" data-category="lavavajilla">
                 <div class="product-img-container">
                     <img src="sandia.png" alt="Lavavajilla ECO Sandia">
                 </div>
@@ -501,22 +561,31 @@
     </footer>
 
     <script>
-        function filterProducts(category) {
+        // Función para el menú hamburguesa
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        // Función de filtrado optimizada (acepta 'btn')
+        function filterProducts(category, btn) {
             const products = document.querySelectorAll('.product-item');
             const buttons = document.querySelectorAll('.filter-btn');
 
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
+            // Actualizar botón activo
+            buttons.forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
 
             products.forEach(product => {
                 const productCategory = product.getAttribute('data-category');
                 
                 if (category === 'all' || productCategory === category) {
                     product.style.display = 'flex'; 
+                    // Reiniciar animación
                     product.style.animation = 'none';
-                    product.offsetHeight; 
+                    product.offsetHeight; /* Trigger reflow */
                     product.style.animation = 'fadeIn 0.5s ease-in-out';
                 } else {
                     product.style.display = 'none'; 
