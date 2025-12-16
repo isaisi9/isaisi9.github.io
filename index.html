@@ -244,14 +244,51 @@
         }
         
         /* AQUÍ ESTÁ LA CORRECCIÓN DE LA IMAGEN CORTADA */
-        .cat-image {
+       /* .cat-image {
             height: 250px;
             background-color: #ffffff; /* Fondo blanco para rellenar espacios */
-            width: 100%;
+            /* width: 100%;
             background-size: contain; /* Muestra la imagen completa sin recortar */
-            background-position: center;
+            /*background-position: center;
             background-repeat: no-repeat; /* Evita repeticiones */
-        }
+        } 
+        */
+        /* --- NUEVOS ESTILOS PARA LAS IMÁGENES DE CATEGORÍA (Estilo Producto) --- */
+
+/* El contenedor que recorta la imagen y le da bordes redondeados */
+.cat-img-wrapper {
+    width: 100%;
+    height: 280px; /* Altura similar a la de los productos para consistencia */
+    overflow: hidden;
+    border-top-left-radius: 8px; /* Bordes redondeados arriba */
+    border-top-right-radius: 8px;
+    background-color: #f9f9f9; /* Fondo gris claro por si la imagen tarda en cargar */
+}
+
+/* La imagen real dentro del contenedor */
+.cat-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    /* 'cover' hace que la imagen llene todo el espacio sin deformarse, 
+       recortando los bordes si es necesario. Es lo que da el look de la foto que enviaste. */
+    object-fit: cover; 
+    transition: transform 0.5s ease; /* Suaviza el efecto de zoom */
+}
+
+/* Efecto Zoom al pasar el mouse sobre la tarjeta (igual que en productos) */
+.card-link:hover .cat-img-wrapper img {
+    transform: scale(1.05);
+}
+
+/* Pequeño ajuste a la tarjeta para que los bordes redondeados de la imagen se noten */
+.cat-card {
+    background: var(--blanco);
+    padding: 0;
+    cursor: pointer;
+    height: 100%;
+    border-radius: 8px; /* Asegura que toda la tarjeta tenga bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Un poco de sombra para profundidad */
+}
         
         .cat-info {
             padding: 20px;
@@ -494,42 +531,48 @@
     </section>
 
     <section id="catalogo" class="categories">
-        <h2>Nuestras Colecciones</h2>
-        <div class="grid-categories">
-            
-            <a href="cuidado.html" class="card-link">
-                <div class="cat-card">
-                    <div class="cat-image" style="background-image: url('cat-cuidado.png');"></div>
-                    <div class="cat-info">
-                        <h3>Cuidado Personal</h3>
-                        <p style="color: #777;">Kit Tratamiento, Jabones líquidos de cuerpo y manos</p>
-                    </div>
+    <h2>Nuestras Colecciones</h2>
+    <div class="grid-categories">
+        
+        <a href="cuidado.html" class="card-link">
+            <div class="cat-card">
+                <div class="cat-img-wrapper">
+                    <img src="cat-cuidado.png" alt="Categoría Cuidado Personal">
                 </div>
-            </a>
-
-            <a href="hogar.html" class="card-link">
-                <div class="cat-card">
-                    <div class="cat-image" style="background-image: url('Hogar2.png');"></div>
-                    <div class="cat-info">
-                        <h3>Línea de Bienestar y Limpieza</h3>
-                        <p style="color: #777;">Detergente Líquido, Suavizante, Aroma Textil y Lavavajilla</p>
-                    </div>
+                <div class="cat-info">
+                    <h3>Cuidado Personal</h3>
+                    <p style="color: #777;">Kit Tratamiento, Jabones líquidos de cuerpo y manos</p>
                 </div>
-            </a>
-            
-            <a href="aroma.html" class="card-link">
-                <div class="cat-card">
-                    <div class="cat-image" style="background-image: url('aroma.png');"></div>
-                    <div class="cat-info">
-                        <h3>Desinfección y Aromaterapia</h3>
-                        <p style="color: #777;">Desinfectantes, Aromatizantes y Aceites Esenciales</p>
-                    </div>
+            </div>
+        </a>
+
+        <a href="hogar.html" class="card-link">
+            <div class="cat-card">
+                <div class="cat-img-wrapper">
+                    <img src="Hogar2.png" alt="Categoría Hogar">
                 </div>
-            </a>
+                <div class="cat-info">
+                    <h3>Línea de Bienestar y Limpieza</h3>
+                    <p style="color: #777;">Detergente Líquido, Suavizante, Aroma Textil y Lavavajilla</p>
+                </div>
+            </div>
+        </a>
+        
+        <a href="aroma.html" class="card-link">
+            <div class="cat-card">
+                <div class="cat-img-wrapper">
+                    <img src="aroma.png" alt="Categoría Aromaterapia">
+                </div>
+                <div class="cat-info">
+                    <h3>Desinfección y Aromaterapia</h3>
+                    <p style="color: #777;">Desinfectantes, Aromatizantes y Aceites Esenciales</p>
+                </div>
+            </div>
+        </a>
 
-        </div>
-    </section>
-
+    </div>
+</section>
+    
     <section class="products-section">
         <h2 class="about-main-title" style="margin-bottom: 40px; font-size: 2.2rem;">Favoritos de la Temporada</h2>
         
